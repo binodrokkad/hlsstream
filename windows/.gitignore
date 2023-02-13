@@ -1,2 +1,5 @@
 .vs
-hlsstream
+hlsstream/hlsstream.vcxproj.user
+Debug
+Release
+x64
