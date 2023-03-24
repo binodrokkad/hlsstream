@@ -1,0 +1,360 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DA987EF29CC903D00CB9369 /* libcurl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA987EE29CC903D00CB9369 /* libcurl.tbd */; };
+		9DC90CD729CC830F00E19A12 /* HLSReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC90CC729CC830F00E19A12 /* HLSReader.cpp */; };
+		9DC90CD829CC830F00E19A12 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CC829CC830F00E19A12 /* Common.h */; };
+		9DC90CD929CC830F00E19A12 /* HLSReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CC929CC830F00E19A12 /* HLSReader.h */; };
+		9DC90CDA29CC830F00E19A12 /* Demuxer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC90CCA29CC830F00E19A12 /* Demuxer.cpp */; };
+		9DC90CDB29CC830F00E19A12 /* PlaylistParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CCB29CC830F00E19A12 /* PlaylistParser.h */; };
+		9DC90CDC29CC830F00E19A12 /* HLSStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC90CCC29CC830F00E19A12 /* HLSStreamer.cpp */; };
+		9DC90CDD29CC830F00E19A12 /* SegmentManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC90CCD29CC830F00E19A12 /* SegmentManager.cpp */; };
+		9DC90CDE29CC830F00E19A12 /* HTTPHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CCE29CC830F00E19A12 /* HTTPHandler.h */; };
+		9DC90CDF29CC830F00E19A12 /* HLSStreamer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CCF29CC830F00E19A12 /* HLSStreamer.h */; };
+		9DC90CE029CC830F00E19A12 /* WaitCond.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CD029CC830F00E19A12 /* WaitCond.h */; };
+		9DC90CE129CC830F00E19A12 /* HTTPHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC90CD129CC830F00E19A12 /* HTTPHandler.cpp */; };
+		9DC90CE229CC830F00E19A12 /* LiveManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CD229CC830F00E19A12 /* LiveManager.h */; };
+		9DC90CE329CC830F00E19A12 /* Demuxer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CD329CC830F00E19A12 /* Demuxer.h */; };
+		9DC90CE429CC830F00E19A12 /* PlaylistParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC90CD429CC830F00E19A12 /* PlaylistParser.cpp */; };
+		9DC90CE529CC830F00E19A12 /* SegmentManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC90CD529CC830F00E19A12 /* SegmentManager.h */; };
+		9DC90CE629CC830F00E19A12 /* LiveManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC90CD629CC830F00E19A12 /* LiveManager.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9DA987EE29CC903D00CB9369 /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = usr/lib/libcurl.tbd; sourceTree = SDKROOT; };
+		9DC90CB929CC82E400E19A12 /* libhlsstream.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libhlsstream.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DC90CC729CC830F00E19A12 /* HLSReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HLSReader.cpp; path = ../src/HLSReader.cpp; sourceTree = "<group>"; };
+		9DC90CC829CC830F00E19A12 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../src/Common.h; sourceTree = "<group>"; };
+		9DC90CC929CC830F00E19A12 /* HLSReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HLSReader.h; path = ../src/HLSReader.h; sourceTree = "<group>"; };
+		9DC90CCA29CC830F00E19A12 /* Demuxer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Demuxer.cpp; path = ../src/Demuxer.cpp; sourceTree = "<group>"; };
+		9DC90CCB29CC830F00E19A12 /* PlaylistParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaylistParser.h; path = ../src/PlaylistParser.h; sourceTree = "<group>"; };
+		9DC90CCC29CC830F00E19A12 /* HLSStreamer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HLSStreamer.cpp; path = ../src/HLSStreamer.cpp; sourceTree = "<group>"; };
+		9DC90CCD29CC830F00E19A12 /* SegmentManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SegmentManager.cpp; path = ../src/SegmentManager.cpp; sourceTree = "<group>"; };
+		9DC90CCE29CC830F00E19A12 /* HTTPHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPHandler.h; path = ../src/HTTPHandler.h; sourceTree = "<group>"; };
+		9DC90CCF29CC830F00E19A12 /* HLSStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HLSStreamer.h; path = ../src/HLSStreamer.h; sourceTree = "<group>"; };
+		9DC90CD029CC830F00E19A12 /* WaitCond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitCond.h; path = ../src/WaitCond.h; sourceTree = "<group>"; };
+		9DC90CD129CC830F00E19A12 /* HTTPHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPHandler.cpp; path = ../src/HTTPHandler.cpp; sourceTree = "<group>"; };
+		9DC90CD229CC830F00E19A12 /* LiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveManager.h; path = ../src/LiveManager.h; sourceTree = "<group>"; };
+		9DC90CD329CC830F00E19A12 /* Demuxer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Demuxer.h; path = ../src/Demuxer.h; sourceTree = "<group>"; };
+		9DC90CD429CC830F00E19A12 /* PlaylistParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlaylistParser.cpp; path = ../src/PlaylistParser.cpp; sourceTree = "<group>"; };
+		9DC90CD529CC830F00E19A12 /* SegmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegmentManager.h; path = ../src/SegmentManager.h; sourceTree = "<group>"; };
+		9DC90CD629CC830F00E19A12 /* LiveManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LiveManager.cpp; path = ../src/LiveManager.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DC90CB729CC82E400E19A12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DA987EF29CC903D00CB9369 /* libcurl.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DA987ED29CC903D00CB9369 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DA987EE29CC903D00CB9369 /* libcurl.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DC90CB029CC82E400E19A12 = {
+			isa = PBXGroup;
+			children = (
+				9DC90CC829CC830F00E19A12 /* Common.h */,
+				9DC90CCA29CC830F00E19A12 /* Demuxer.cpp */,
+				9DC90CD329CC830F00E19A12 /* Demuxer.h */,
+				9DC90CC729CC830F00E19A12 /* HLSReader.cpp */,
+				9DC90CC929CC830F00E19A12 /* HLSReader.h */,
+				9DC90CCC29CC830F00E19A12 /* HLSStreamer.cpp */,
+				9DC90CCF29CC830F00E19A12 /* HLSStreamer.h */,
+				9DC90CD129CC830F00E19A12 /* HTTPHandler.cpp */,
+				9DC90CCE29CC830F00E19A12 /* HTTPHandler.h */,
+				9DC90CD629CC830F00E19A12 /* LiveManager.cpp */,
+				9DC90CD229CC830F00E19A12 /* LiveManager.h */,
+				9DC90CD429CC830F00E19A12 /* PlaylistParser.cpp */,
+				9DC90CCB29CC830F00E19A12 /* PlaylistParser.h */,
+				9DC90CCD29CC830F00E19A12 /* SegmentManager.cpp */,
+				9DC90CD529CC830F00E19A12 /* SegmentManager.h */,
+				9DC90CD029CC830F00E19A12 /* WaitCond.h */,
+				9DC90CBA29CC82E400E19A12 /* Products */,
+				9DA987ED29CC903D00CB9369 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9DC90CBA29CC82E400E19A12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DC90CB929CC82E400E19A12 /* libhlsstream.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9DC90CB529CC82E400E19A12 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC90CDB29CC830F00E19A12 /* PlaylistParser.h in Headers */,
+				9DC90CE329CC830F00E19A12 /* Demuxer.h in Headers */,
+				9DC90CE229CC830F00E19A12 /* LiveManager.h in Headers */,
+				9DC90CE529CC830F00E19A12 /* SegmentManager.h in Headers */,
+				9DC90CDE29CC830F00E19A12 /* HTTPHandler.h in Headers */,
+				9DC90CDF29CC830F00E19A12 /* HLSStreamer.h in Headers */,
+				9DC90CD829CC830F00E19A12 /* Common.h in Headers */,
+				9DC90CD929CC830F00E19A12 /* HLSReader.h in Headers */,
+				9DC90CE029CC830F00E19A12 /* WaitCond.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9DC90CB829CC82E400E19A12 /* hlsstream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DC90CC429CC82E400E19A12 /* Build configuration list for PBXNativeTarget "hlsstream" */;
+			buildPhases = (
+				9DC90CB529CC82E400E19A12 /* Headers */,
+				9DC90CB629CC82E400E19A12 /* Sources */,
+				9DC90CB729CC82E400E19A12 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = hlsstream;
+			productName = hlsstream;
+			productReference = 9DC90CB929CC82E400E19A12 /* libhlsstream.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DC90CB129CC82E400E19A12 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					9DC90CB829CC82E400E19A12 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 9DC90CB429CC82E400E19A12 /* Build configuration list for PBXProject "hlsstream" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DC90CB029CC82E400E19A12;
+			productRefGroup = 9DC90CBA29CC82E400E19A12 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DC90CB829CC82E400E19A12 /* hlsstream */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DC90CB629CC82E400E19A12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DC90CDA29CC830F00E19A12 /* Demuxer.cpp in Sources */,
+				9DC90CDD29CC830F00E19A12 /* SegmentManager.cpp in Sources */,
+				9DC90CE429CC830F00E19A12 /* PlaylistParser.cpp in Sources */,
+				9DC90CE129CC830F00E19A12 /* HTTPHandler.cpp in Sources */,
+				9DC90CDC29CC830F00E19A12 /* HLSStreamer.cpp in Sources */,
+				9DC90CD729CC830F00E19A12 /* HLSReader.cpp in Sources */,
+				9DC90CE629CC830F00E19A12 /* LiveManager.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9DC90CC229CC82E400E19A12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9DC90CC329CC82E400E19A12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9DC90CC529CC82E400E19A12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lavformat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9DC90CC629CC82E400E19A12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lavformat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DC90CB429CC82E400E19A12 /* Build configuration list for PBXProject "hlsstream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC90CC229CC82E400E19A12 /* Debug */,
+				9DC90CC329CC82E400E19A12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DC90CC429CC82E400E19A12 /* Build configuration list for PBXNativeTarget "hlsstream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DC90CC529CC82E400E19A12 /* Debug */,
+				9DC90CC629CC82E400E19A12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DC90CB129CC82E400E19A12 /* Project object */;
+}
