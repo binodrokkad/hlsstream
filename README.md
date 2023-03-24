@@ -20,3 +20,10 @@ Open vs project inside windows directory.
 - ``` vcpkg install curl ```
 - ``` vcpkg install ffmpeg ```
 
+### macOS
+Library build using xcode
+
+Open xcode project inside macOS directory
+ffmpeg is required to be installed using homebrew.
+- ``` brew install ffmpeg ```
+

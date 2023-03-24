@@ -1,1 +1,5 @@
 build
+.DS_Store
+macOS/.DS_Store
+macOS/hlsstream.xcodeproj/xcuserdata
+macOS/hlsstream.xcodeproj/project.xcworkspace
