@@ -27,3 +27,15 @@ Open xcode project inside macOS directory
 ffmpeg is required to be installed using homebrew.
 - ``` brew install ffmpeg ```
 
+### Linux
+Library build using cmake
+
+Open terminal and install dependencies.
+- ```sudo apt install libavcodec-dev```
+- ```sudo apt install libavformat-dev```
+- ```sudo apt install curl```
+
+building
+- ``` mkdir build && cd build ```
+- ``` cmake -DCMAKE_BUILD_TYPE=Debug .. && make```
+

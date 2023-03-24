@@ -2,6 +2,8 @@
 #define WaitCond_H
 
 #include <mutex>
+#include <condition_variable>
+
 namespace HLS
 {
     class WaitCond

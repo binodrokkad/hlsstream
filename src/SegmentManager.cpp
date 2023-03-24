@@ -2,6 +2,7 @@
 #include "Common.h"
 #include <future>
 #include <iostream>
+#include <string.h>
 
 using namespace HLS;
 
