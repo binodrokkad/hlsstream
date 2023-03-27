@@ -3,7 +3,7 @@
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
-namespace HLS 
+namespace HLS
 {
 	enum Status
 	{
@@ -15,7 +15,7 @@ namespace HLS
 		STATUS_UNKNOWN_STREAM_IDX,
 	};
 
-	enum HLSType 
+	enum HLSType
 	{
 		HLS_TYPE_UNKNOWN = 0,
 		HLS_TYPE_LIVE,

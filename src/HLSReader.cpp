@@ -14,14 +14,15 @@ HLSReader::~HLSReader()
 	destroy();
 }
 
-int HLSReader::init(std::string& playlistUrl)
+int HLSReader::init(std::string &playlistUrl)
 {
 	m_playlistUrl = playlistUrl;
 	m_baseUrl = playlistUrl.substr(0, playlistUrl.find_last_of('/'));
 	return preparePlaylist(playlistUrl);
 }
 
-void HLSReader::destroy() {
+void HLSReader::destroy()
+{
 	m_readerCallback = nullptr;
 }
 
@@ -35,7 +36,7 @@ HLSType HLSReader::hlsType()
 	return m_hlsType;
 }
 
-int HLSReader::getPlaylist(std::string& url, std::string* playlistData)
+int HLSReader::getPlaylist(std::string &url, std::string *playlistData)
 {
 	url = updateDestinationUrl(url);
 
@@ -58,12 +59,12 @@ void HLSReader::requestPlaylist(std::string url)
 {
 	m_playlistData.clear();
 	std::vector<std::pair<std::string, std::string>> args;
-	m_httpHandler.getRequest(url, args, [&](void* data, size_t size) {
+	m_httpHandler.getRequest(url, args, [&](void *data, size_t size)
+							 {
 		std::string result((char*)data);
 		//std::cout << result << "\n";
 		m_playlistData += result;
-		return;
-	});
+		return; });
 }
 
 int HLSReader::preparePlaylist(std::string &url)
@@ -86,19 +87,19 @@ int HLSReader::preparePlaylist(std::string &url)
 
 	if (parser.isMasterType())
 	{
-		//handle master type
+		// handle master type
 		m_masterPlaylistData = playlistData;
 		handleMasterPlaylist(parser);
 	}
 	else
 	{
-		//handle media type
+		// handle media type
 		handleMediaPlaylist(parser, url);
 	}
 	return STATUS_OK;
 }
 
-std::string HLS::HLSReader::updateDestinationUrl(std::string& url)
+std::string HLS::HLSReader::updateDestinationUrl(std::string &url)
 {
 	if (!(url.find("http") != std::string::npos))
 	{
@@ -107,23 +108,22 @@ std::string HLS::HLSReader::updateDestinationUrl(std::string& url)
 	return url;
 }
 
-
-void HLSReader::handleMasterPlaylist(PlaylistParser& parser)
+void HLSReader::handleMasterPlaylist(PlaylistParser &parser)
 {
 	m_masterStreamsInf = parser.getStreamList();
 	m_masterPlaylistParser = parser;
 	preparePlaylist(m_masterStreamsInf.at(3).m_playlistUrl);
 }
 
-void HLSReader::handleMediaPlaylist(PlaylistParser& parser, std::string & url)
+void HLSReader::handleMediaPlaylist(PlaylistParser &parser, std::string &url)
 {
 	m_playlistParser = parser;
 	std::cout << "Media Desc, is Live: " << parser.isLiveType() << " duration: "
-		<< parser.getTargetDuration() << std::endl;
+			  << parser.getTargetDuration() << std::endl;
 	m_segmentManger = std::make_unique<SegmentManager>(this);
 	m_segmentManger->setBaseUrl(m_baseUrl);
 	m_segmentManger->setTargetDuration(parser.getTargetDuration());
-	if (parser.isLiveType()) 
+	if (parser.isLiveType())
 	{
 		m_hlsType = HLS_TYPE_LIVE;
 		m_liveManager = std::make_unique<LiveManager>(this, url);
@@ -134,7 +134,7 @@ void HLSReader::handleMediaPlaylist(PlaylistParser& parser, std::string & url)
 		m_hlsType = HLS_TYPE_VOD;
 		auto segments = parser.getSegments();
 		double duration = 0;
-		for (auto& segment : segments)
+		for (auto &segment : segments)
 		{
 			duration += segment.second.m_duration;
 			segment.second.m_filePath = updateDestinationUrl(segment.second.m_filePath);
@@ -146,15 +146,15 @@ void HLSReader::handleMediaPlaylist(PlaylistParser& parser, std::string & url)
 		m_segmentManger->setTotalDuration(duration);
 		m_segmentManger->setSegments(segments);
 	}
-}	
+}
 
-void HLS::HLSReader::onLiveSegment(std::map<int, Segment>& segments)
+void HLS::HLSReader::onLiveSegment(std::map<int, Segment> &segments)
 {
-	for (auto& segment : segments)
+	for (auto &segment : segments)
 	{
 		segment.second.m_filePath = updateDestinationUrl(segment.second.m_filePath);
 		std::cout << "onLiveSegment " << segment.second.m_sequenceId << " "
-			<< segment.second.m_filePath << std::endl;
+				  << segment.second.m_filePath << std::endl;
 	}
 	m_segmentManger->addSegment(segments);
 }
@@ -164,7 +164,7 @@ void HLS::HLSReader::onLiveStarted()
 	m_segmentManger->checkLoadNext(0);
 }
 
-void HLS::HLSReader::onDataReady(std::shared_ptr<SegmentBuffer>& segmentBuffer)
+void HLS::HLSReader::onDataReady(std::shared_ptr<SegmentBuffer> &segmentBuffer)
 {
 	if (m_readerCallback)
 	{

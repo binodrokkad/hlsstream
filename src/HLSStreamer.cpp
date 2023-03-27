@@ -6,9 +6,9 @@
 using namespace HLS;
 
 HLSStreamer::HLSStreamer(HLSStreamerCallback *callback) : m_processInterrupted(false),
-m_hlsReader(this),
-m_callback(callback),
-m_demuxer(this)
+														  m_hlsReader(this),
+														  m_callback(callback),
+														  m_demuxer(this)
 {
 }
 
@@ -17,7 +17,7 @@ HLSStreamer::~HLSStreamer()
 	destroy();
 }
 
-int HLSStreamer::open(std::string& url)
+int HLSStreamer::open(std::string &url)
 {
 	m_mainUrl = url;
 	destroy();
@@ -54,16 +54,16 @@ void HLSStreamer::parseProcessor()
 		int result = STATUS_OK;
 		while (!m_processInterrupted && result == STATUS_OK)
 		{
-			uint8_t* buffer = nullptr;
+			uint8_t *buffer = nullptr;
 			int bufSize = 0;
 			int64_t pts = 0;
 			StreamType streamIdx = STREAM_UNKNOWN;
 			m_mutex.lock();
 			result = m_demuxer.getPacket(&buffer, &bufSize, &pts, &streamIdx);
 			m_mutex.unlock();
-			if (result == STATUS_OK && 
+			if (result == STATUS_OK &&
 				buffer &&
-				bufSize && 
+				bufSize &&
 				streamIdx != STREAM_UNKNOWN)
 			{
 				if (m_callback)
@@ -84,7 +84,7 @@ void HLSStreamer::onDuration(double duration)
 	}
 }
 
-void  HLSStreamer::onSegmentData(std::shared_ptr<HLS::SegmentBuffer>& segmentData)
+void HLSStreamer::onSegmentData(std::shared_ptr<HLS::SegmentBuffer> &segmentData)
 {
 	m_mutex.lock();
 	m_demuxer.enqueueSegment(segmentData);
@@ -96,16 +96,14 @@ void HLSStreamer::onDemuxerReady()
 {
 	if (m_callback)
 	{
-		m_callback->onVideoSetup(!m_demuxer.videoConfigData().empty() ?
-								 &m_demuxer.videoConfigData()[0] : nullptr,
+		m_callback->onVideoSetup(!m_demuxer.videoConfigData().empty() ? &m_demuxer.videoConfigData()[0] : nullptr,
 								 m_demuxer.videoConfigData().size(),
 								 m_demuxer.videoCodec(),
 								 m_demuxer.width(),
 								 m_demuxer.height(),
 								 m_demuxer.frameRate());
 		m_callback->onAudioSetup(
-			!m_demuxer.audioConfigData().empty() ?
-			&m_demuxer.audioConfigData()[0] : nullptr,
+			!m_demuxer.audioConfigData().empty() ? &m_demuxer.audioConfigData()[0] : nullptr,
 			m_demuxer.audioConfigData().size(),
 			m_demuxer.audioCodec(),
 			m_demuxer.sampleRate(),
@@ -120,7 +118,3 @@ void HLSStreamer::onSegmentConsumed(int id)
 		m_callback->onSegmentConsumed(id);
 	}
 }
-
-
-
-

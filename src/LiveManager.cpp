@@ -2,12 +2,11 @@
 #include "Common.h"
 
 using namespace HLS;
-LiveManager::LiveManager(LiveManagerCallback *callback, std::string& url):
-	m_targetDuration(0),
-	m_processInterrupted(false),
-	currentSegmentId(0),
-	m_url(url),
-	m_callback(callback)
+LiveManager::LiveManager(LiveManagerCallback *callback, std::string &url) : m_targetDuration(0),
+																			m_processInterrupted(false),
+																			currentSegmentId(0),
+																			m_url(url),
+																			m_callback(callback)
 {
 }
 
@@ -30,8 +29,8 @@ void HLS::LiveManager::reloadProcessor()
 	{
 		if (!firstLoad)
 		{
-			reloadGaps += (m_targetDuration/2 * 1000) / sleepMS;
-			if (reloadGaps < m_targetDuration/2 * 1000)
+			reloadGaps += (m_targetDuration / 2 * 1000) / sleepMS;
+			if (reloadGaps < m_targetDuration / 2 * 1000)
 			{
 				std::this_thread::sleep_for(std::chrono::milliseconds(sleepMS));
 				continue;
@@ -43,28 +42,28 @@ void HLS::LiveManager::reloadProcessor()
 		int result = m_callback->getPlaylist(m_url, &playlistData);
 		if (result != STATUS_OK)
 		{
-			//retry
+			// retry
 			continue;
 		}
 		parser.parse(playlistData);
 		if (result != STATUS_OK)
 		{
-			//invalid data
+			// invalid data
 			break;
 		}
 		m_targetDuration = parser.getTargetDuration();
 		auto segments = m_currentParser.getSegments();
 		if (segments.empty())
 		{
-			//m_currentPlaylist is not set yet
+			// m_currentPlaylist is not set yet
 			m_currentParser = parser;
 			auto newSegments = parser.getSegments();
-			int size = MIN (newSegments.size(), 3);
+			int size = MIN(newSegments.size(), 3);
 			currentSegmentId = 0;
 			std::map<int, Segment> updatedSegments;
 
 			for (auto it = newSegments.rbegin();
-				it != newSegments.rend(); ++it)
+				 it != newSegments.rend(); ++it)
 			{
 				if (currentSegmentId >= size)
 				{
@@ -84,8 +83,8 @@ void HLS::LiveManager::reloadProcessor()
 		Segment lastSegment = it->second;
 
 		auto newSegments = parser.getSegments();
-		
-	    it = newSegments.end();
+
+		it = newSegments.end();
 		it--;
 		Segment newLastSegment = it->second;
 
@@ -94,7 +93,7 @@ void HLS::LiveManager::reloadProcessor()
 			bool foundInList = false;
 			std::map<int, Segment> updatedSegments;
 
-			for (auto& segment : newSegments)
+			for (auto &segment : newSegments)
 			{
 				if (foundInList)
 				{
@@ -109,7 +108,7 @@ void HLS::LiveManager::reloadProcessor()
 			}
 			if (!foundInList)
 			{
-				for (auto& segment : newSegments)
+				for (auto &segment : newSegments)
 				{
 					segment.second.m_sequenceId = currentSegmentId;
 					updatedSegments[currentSegmentId] = segment.second;

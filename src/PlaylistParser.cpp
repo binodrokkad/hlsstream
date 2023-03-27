@@ -19,8 +19,8 @@ std::string AVERAGE_BANDWIDTH = "AVERAGE-BANDWIDTH";
 std::string RESOLUTION = "RESOLUTION";
 
 PlaylistParser::PlaylistParser() : m_isMasterType(false),
-m_isLive(false),
-m_targetDuration(0)
+                                   m_isLive(false),
+                                   m_targetDuration(0)
 {
 }
 
@@ -28,7 +28,7 @@ PlaylistParser::~PlaylistParser()
 {
 }
 
-std::vector<std::string> splitter(const std::string& str, const char& character)
+std::vector<std::string> splitter(const std::string &str, const char &character)
 {
     std::vector<std::string> tokens;
     std::stringstream ss(str);
@@ -40,9 +40,9 @@ std::vector<std::string> splitter(const std::string& str, const char& character)
     return tokens;
 }
 
-bool tagAvailable(std::vector<std::string> lines, std::string& input)
+bool tagAvailable(std::vector<std::string> lines, std::string &input)
 {
-    for (auto& line : lines)
+    for (auto &line : lines)
     {
         if (line.find(input) != std::string::npos)
         {
@@ -52,9 +52,9 @@ bool tagAvailable(std::vector<std::string> lines, std::string& input)
     return false;
 }
 
-std::string getLine(std::vector<std::string> lines, std::string& input)
+std::string getLine(std::vector<std::string> lines, std::string &input)
 {
-    for (auto& line : lines)
+    for (auto &line : lines)
     {
         if (line.find(input) != std::string::npos)
         {
@@ -64,19 +64,17 @@ std::string getLine(std::vector<std::string> lines, std::string& input)
     return std::string();
 }
 
-int PlaylistParser::parse(std::string& data)
+int PlaylistParser::parse(std::string &data)
 {
     m_lines = splitter(data, '\n');
 
-    //first line must contain EXTM3U
-    if (m_lines.empty()
-        || m_lines.at(0).compare(EXTM3U) != 0
-        || !tagAvailable(m_lines, EXT_X_VERSION))
+    // first line must contain EXTM3U
+    if (m_lines.empty() || m_lines.at(0).compare(EXTM3U) != 0 || !tagAvailable(m_lines, EXT_X_VERSION))
     {
         return STATUS_UNKNOWN_TYPE;
     }
 
-    //determine type master or media
+    // determine type master or media
     if (tagAvailable(m_lines, EXT_X_STREAM_INF))
     {
         m_isMasterType = true;
@@ -98,14 +96,14 @@ int PlaylistParser::parse(std::string& data)
             m_isLive = true;
         }
     }
-    
+
     if (tagAvailable(m_lines, EXT_X_TARGETDURATION))
     {
         auto line = getLine(m_lines, EXT_X_TARGETDURATION);
         m_targetDuration = std::stod(line.substr(line.find(":") + 1));
     }
 
-	return 0;
+    return 0;
 }
 
 bool HLS::PlaylistParser::isMasterType()
@@ -122,14 +120,14 @@ std::vector<StreamInf> HLS::PlaylistParser::getStreamList()
 {
     std::vector<StreamInf> streamInfs;
     int lineIdx = 0;
-    for (auto& line : m_lines)
+    for (auto &line : m_lines)
     {
         if (line.find(EXT_X_STREAM_INF) != std::string::npos)
         {
             std::string attrStr = line.substr(line.find(":") + 1);
             auto attrs = splitter(attrStr, ',');
             StreamInf streamInf;
-            for (auto& attr : attrs)
+            for (auto &attr : attrs)
             {
                 if (attr.find(BANDWIDTH) != std::string::npos)
                 {
@@ -160,14 +158,14 @@ std::vector<StreamInf> HLS::PlaylistParser::getStreamList()
     return streamInfs;
 }
 
-std::map<int, Segment>& PlaylistParser::getSegments()
+std::map<int, Segment> &PlaylistParser::getSegments()
 {
     if (!m_segments.empty())
     {
         return m_segments;
     }
     int lineIdx = 0, sequenceId = 0;
-    for (auto& line : m_lines)
+    for (auto &line : m_lines)
     {
         if (line.find(EXTINF) != std::string::npos)
         {
@@ -195,5 +193,3 @@ double HLS::PlaylistParser::getTargetDuration()
 {
     return m_targetDuration;
 }
-
-

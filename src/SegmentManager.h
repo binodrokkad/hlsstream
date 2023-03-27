@@ -7,14 +7,15 @@
 #include <queue>
 #include <thread>
 
-namespace HLS {
-	class SegmentBuffer {
+namespace HLS
+{
+	class SegmentBuffer
+	{
 	public:
-		SegmentBuffer(int sequenceIdx, size_t buffSize):
-			m_dataSize(buffSize),
-			m_sequenceIdx(sequenceIdx)
+		SegmentBuffer(int sequenceIdx, size_t buffSize) : m_dataSize(buffSize),
+														  m_sequenceIdx(sequenceIdx)
 		{
-			m_data = (uint8_t*)calloc(1, buffSize);
+			m_data = (uint8_t *)calloc(1, buffSize);
 		}
 
 		~SegmentBuffer()
@@ -26,7 +27,7 @@ namespace HLS {
 			}
 		}
 
-		uint8_t* m_data;
+		uint8_t *m_data;
 		size_t m_dataSize;
 		int m_sequenceIdx;
 		Segment m_segment;
@@ -35,14 +36,15 @@ namespace HLS {
 	class SegmentManagerCallback
 	{
 	public:
-		virtual void onDataReady(std::shared_ptr<SegmentBuffer> & segmentBuffer) = 0;
+		virtual void onDataReady(std::shared_ptr<SegmentBuffer> &segmentBuffer) = 0;
 	};
 
-	class SegmentManager {
+	class SegmentManager
+	{
 	public:
-		SegmentManager(SegmentManagerCallback * callback);
+		SegmentManager(SegmentManagerCallback *callback);
 		~SegmentManager();
-		void setBaseUrl(std::string& baseUrl);
+		void setBaseUrl(std::string &baseUrl);
 		void setSegments(std::map<int, Segment> segments);
 		void setTargetDuration(double targetDuration);
 		void seek(double seekSec);
@@ -53,6 +55,7 @@ namespace HLS {
 	private:
 		void downloadProcessor();
 		void enqueueSegments();
+
 	private:
 		int m_nextReadySegment;
 		int m_maxCacheSegment;
@@ -61,12 +64,12 @@ namespace HLS {
 		bool m_processInterrupted;
 		std::string m_baseUrl;
 		std::mutex m_mutex;
-		std::map<int,Segment> m_segments;
+		std::map<int, Segment> m_segments;
 		std::map<int, std::shared_ptr<SegmentBuffer>> m_cachedBuffers;
 		std::thread m_downloadThread;
 		WaitCond m_condWait;
 		std::queue<Segment> m_queuedSegments;
-		SegmentManagerCallback* m_callback;
+		SegmentManagerCallback *m_callback;
 	};
 }
 #endif

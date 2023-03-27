@@ -6,19 +6,21 @@
 
 namespace HLS
 {
-	class LiveManagerCallback {
+	class LiveManagerCallback
+	{
 	public:
-		virtual int getPlaylist(std::string &url, std::string * playlistData) = 0;
+		virtual int getPlaylist(std::string &url, std::string *playlistData) = 0;
 		virtual void onLiveStarted() = 0;
-		virtual void onLiveSegment(std::map<int, Segment>& segments) = 0;
+		virtual void onLiveSegment(std::map<int, Segment> &segments) = 0;
 	};
 	class LiveManager
 	{
 	public:
-		LiveManager(LiveManagerCallback *callback, 
-			std::string & url);
+		LiveManager(LiveManagerCallback *callback,
+					std::string &url);
 		~LiveManager();
 		void init();
+
 	private:
 		void reloadProcessor();
 
@@ -29,7 +31,7 @@ namespace HLS
 		std::thread m_reloadThread;
 		std::string m_url;
 		PlaylistParser m_currentParser;
-		LiveManagerCallback * m_callback;
+		LiveManagerCallback *m_callback;
 	};
 }
 #endif // !LiveManager_H

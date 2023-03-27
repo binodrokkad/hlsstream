@@ -11,11 +11,11 @@
 
 namespace HLS
 {
-	class HLSReaderCallback 
+	class HLSReaderCallback
 	{
 	public:
 		virtual void onDuration(double duration) = 0;
-		virtual void onSegmentData(std::shared_ptr<SegmentBuffer> & segmentData) = 0;
+		virtual void onSegmentData(std::shared_ptr<SegmentBuffer> &segmentData) = 0;
 	};
 
 	class HLSReader : public LiveManagerCallback, public SegmentManagerCallback
@@ -23,24 +23,25 @@ namespace HLS
 	public:
 		HLSReader(HLSReaderCallback *readerCallback);
 		~HLSReader();
-		int init(std::string & playlistUrl);
+		int init(std::string &playlistUrl);
 		void onConsumed(int id);
 		HLSType hlsType();
 
-        void destroy();
+		void destroy();
 
-    private:
+	private:
 		void requestPlaylist(std::string url);
 		void handleMasterPlaylist(PlaylistParser &parser);
-		void handleMediaPlaylist(PlaylistParser &parser, std::string & url);
-		int preparePlaylist(std::string & url);
-		std::string updateDestinationUrl(std::string& url);
+		void handleMediaPlaylist(PlaylistParser &parser, std::string &url);
+		int preparePlaylist(std::string &url);
+		std::string updateDestinationUrl(std::string &url);
 
-		int getPlaylist(std::string& url, std::string* playlistData) override;
-		void onLiveSegment(std::map<int, Segment>& segments) override;
+		int getPlaylist(std::string &url, std::string *playlistData) override;
+		void onLiveSegment(std::map<int, Segment> &segments) override;
 		void onLiveStarted() override;
 
-		void onDataReady(std::shared_ptr<SegmentBuffer>& segmentBuffer) override;
+		void onDataReady(std::shared_ptr<SegmentBuffer> &segmentBuffer) override;
+
 	private:
 		std::mutex m_httpMutex;
 		std::string m_playlistUrl;
@@ -58,6 +59,6 @@ namespace HLS
 
 		std::unique_ptr<SegmentManager> m_segmentManger;
 		std::unique_ptr<LiveManager> m_liveManager;
-    };
+	};
 }
 #endif

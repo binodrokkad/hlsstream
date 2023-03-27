@@ -8,11 +8,11 @@ using namespace HLS;
 
 const int CACHE_DURATION_LIMIT = 30;
 
-SegmentManager::SegmentManager(SegmentManagerCallback * callback) : m_nextReadySegment(0),
-m_targetDuration(0),
-m_maxCacheSegment(0),
-m_processInterrupted(false),
-m_callback(callback)
+SegmentManager::SegmentManager(SegmentManagerCallback *callback) : m_nextReadySegment(0),
+																   m_targetDuration(0),
+																   m_maxCacheSegment(0),
+																   m_processInterrupted(false),
+																   m_callback(callback)
 {
 	m_downloadThread = std::thread(&SegmentManager::downloadProcessor, this);
 }
@@ -44,7 +44,7 @@ void SegmentManager::downloadProcessor()
 
 		std::vector<int> itemsToRemove;
 		m_mutex.lock();
-		for (auto& buffer : m_cachedBuffers)
+		for (auto &buffer : m_cachedBuffers)
 		{
 			if (buffer.first < removeRangeLower)
 			{
@@ -69,11 +69,12 @@ void SegmentManager::downloadProcessor()
 		m_mutex.unlock();
 
 		std::vector<std::pair<std::string, std::string>> args;
-		std::vector<uint8_t*> inData;
+		std::vector<uint8_t *> inData;
 		std::vector<int> sizes;
 
 		int dataSize = 0;
-		int res = httpHandler.getRequest(segment.m_filePath, args, [&](void* data, size_t size) {
+		int res = httpHandler.getRequest(segment.m_filePath, args, [&](void *data, size_t size)
+										 {
 			uint8_t* copy = (uint8_t*)calloc(1, size);
 			if (copy != nullptr)
 			{
@@ -81,15 +82,14 @@ void SegmentManager::downloadProcessor()
 				inData.push_back(copy);
 				sizes.push_back(size);
 				dataSize += size;
-			}
-			});
+			} });
 
 		if (res == STATUS_OK)
 		{
-			SegmentBuffer* buffer = new SegmentBuffer(segment.m_sequenceId, dataSize);
+			SegmentBuffer *buffer = new SegmentBuffer(segment.m_sequenceId, dataSize);
 			int idx = 0;
 			int offset = 0;
-			for (auto& data : inData)
+			for (auto &data : inData)
 			{
 				memcpy(buffer->m_data + offset, data, sizes.at(idx));
 				offset += sizes.at(idx);
@@ -99,7 +99,7 @@ void SegmentManager::downloadProcessor()
 			buffer->m_segment = segment;
 			m_cachedBuffers[segment.m_sequenceId] = std::shared_ptr<SegmentBuffer>(buffer);
 			std::cout << "Request buffer cached " << segment.m_sequenceId << " dataLen "
-				<< dataSize << std::endl;
+					  << dataSize << std::endl;
 			m_callback->onDataReady(m_cachedBuffers[segment.m_sequenceId]);
 		}
 		else
@@ -109,7 +109,7 @@ void SegmentManager::downloadProcessor()
 	}
 }
 
-void SegmentManager::setBaseUrl(std::string& baseUrl)
+void SegmentManager::setBaseUrl(std::string &baseUrl)
 {
 	m_baseUrl = baseUrl;
 }
@@ -121,10 +121,9 @@ void SegmentManager::setSegments(std::map<int, Segment> segments)
 	checkLoadNext(0);
 }
 
-
 void HLS::SegmentManager::addSegment(std::map<int, Segment> segments)
 {
-	for (auto& segment : segments)
+	for (auto &segment : segments)
 	{
 		m_segments.insert(segment);
 	}
@@ -134,7 +133,8 @@ void HLS::SegmentManager::addSegment(std::map<int, Segment> segments)
 		m_mutex.unlock();
 		enqueueSegments();
 	}
-	else {
+	else
+	{
 		m_mutex.unlock();
 	}
 }
@@ -142,8 +142,7 @@ void HLS::SegmentManager::addSegment(std::map<int, Segment> segments)
 void HLS::SegmentManager::setTargetDuration(double targetDuration)
 {
 	m_targetDuration = targetDuration;
-	m_maxCacheSegment = m_targetDuration < CACHE_DURATION_LIMIT ?
-		(CACHE_DURATION_LIMIT / m_targetDuration) : m_targetDuration;
+	m_maxCacheSegment = m_targetDuration < CACHE_DURATION_LIMIT ? (CACHE_DURATION_LIMIT / m_targetDuration) : m_targetDuration;
 }
 
 void HLS::SegmentManager::seek(double seekSec)
@@ -158,7 +157,7 @@ void HLS::SegmentManager::seek(double seekSec)
 
 	std::vector<int> itemsToRemove;
 	m_mutex.lock();
-	for (auto& buffer : m_cachedBuffers)
+	for (auto &buffer : m_cachedBuffers)
 	{
 		if (buffer.first < removeRangeLower)
 		{
@@ -166,7 +165,7 @@ void HLS::SegmentManager::seek(double seekSec)
 		}
 	}
 
-	for (auto& itemId : itemsToRemove)
+	for (auto &itemId : itemsToRemove)
 	{
 		if (m_cachedBuffers.count(itemId))
 		{
@@ -178,7 +177,7 @@ void HLS::SegmentManager::seek(double seekSec)
 
 	double trackSec = 0;
 	int requiredSequence = 0;
-	for (auto& segment : m_segments)
+	for (auto &segment : m_segments)
 	{
 		if (trackSec > seekSec)
 		{
@@ -224,4 +223,3 @@ void SegmentManager::enqueueSegments()
 	m_nextReadySegment += enqueueNum;
 	m_condWait.signal();
 }
-

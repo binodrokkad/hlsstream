@@ -12,11 +12,12 @@ namespace HLS
 	public:
 		HTTPHandler();
 		~HTTPHandler();
-		int getRequest(std::string& url,
-			std::vector<std::pair<std::string, std::string>>& args,
-			std::function<void(void*, size_t)> response);
+		int getRequest(std::string &url,
+					   std::vector<std::pair<std::string, std::string>> &args,
+					   std::function<void(void *, size_t)> response);
+
 	private:
-		void* m_curl;
+		void *m_curl;
 	};
 }
 #endif // !

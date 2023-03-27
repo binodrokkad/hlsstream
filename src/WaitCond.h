@@ -10,10 +10,10 @@ namespace HLS
     {
     public:
         WaitCond(bool in_autoReset = true)
-            :
-            m_autoReset(in_autoReset),
-            m_condIsTrue(false)
-        {}
+            : m_autoReset(in_autoReset),
+              m_condIsTrue(false)
+        {
+        }
 
         void signal()
         {
@@ -33,8 +33,10 @@ namespace HLS
         void wait()
         {
             std::unique_lock<std::mutex> uLock(m_mutex);
-            m_conditionVar.wait(uLock, [&] {return m_condIsTrue; });
-            if (m_autoReset) m_condIsTrue = false;
+            m_conditionVar.wait(uLock, [&]
+                                { return m_condIsTrue; });
+            if (m_autoReset)
+                m_condIsTrue = false;
         }
 
         bool timedWait(long in_timeoutMs)
@@ -42,9 +44,11 @@ namespace HLS
             std::chrono::milliseconds timeoutPeriod(in_timeoutMs);
             std::unique_lock<std::mutex> uLock(m_mutex);
             if (m_conditionVar.wait_for(uLock, timeoutPeriod,
-                [&] {return m_condIsTrue; }))
+                                        [&]
+                                        { return m_condIsTrue; }))
             {
-                if (m_autoReset) m_condIsTrue = false;
+                if (m_autoReset)
+                    m_condIsTrue = false;
                 return true;
             }
             else // timeout
@@ -52,6 +56,7 @@ namespace HLS
                 return false;
             }
         }
+
     private:
         bool m_condIsTrue;
 

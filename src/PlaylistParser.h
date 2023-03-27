@@ -7,7 +7,8 @@
 
 namespace HLS
 {
-	class StreamInf {
+	class StreamInf
+	{
 	public:
 		int64_t m_bps = 0;
 		int64_t m_averageBps = 0;
@@ -17,7 +18,8 @@ namespace HLS
 		std::string m_playlistUrl;
 	};
 
-	class Segment {
+	class Segment
+	{
 	public:
 		int m_sequenceId = 0;
 		double m_duration = 0;
@@ -29,11 +31,11 @@ namespace HLS
 	public:
 		PlaylistParser();
 		~PlaylistParser();
-		int parse(std::string& data);
+		int parse(std::string &data);
 		bool isMasterType();
 		bool isLiveType();
 		std::vector<StreamInf> getStreamList();
-		std::map<int, Segment>& getSegments();
+		std::map<int, Segment> &getSegments();
 		double getTargetDuration();
 
 	private:
