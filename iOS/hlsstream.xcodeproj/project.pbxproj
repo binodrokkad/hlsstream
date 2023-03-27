@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D2D647929CD87FF007EE020 /* LiveManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D646929CD87FC007EE020 /* LiveManager.h */; };
+		9D2D647A29CD87FF007EE020 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D646A29CD87FC007EE020 /* Common.h */; };
+		9D2D647B29CD87FF007EE020 /* Demuxer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D646B29CD87FC007EE020 /* Demuxer.cpp */; };
+		9D2D647C29CD87FF007EE020 /* HTTPHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D646C29CD87FD007EE020 /* HTTPHandler.h */; };
+		9D2D647D29CD87FF007EE020 /* LiveManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D646D29CD87FD007EE020 /* LiveManager.cpp */; };
+		9D2D647E29CD87FF007EE020 /* SegmentManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D646E29CD87FD007EE020 /* SegmentManager.h */; };
+		9D2D647F29CD87FF007EE020 /* SegmentManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D646F29CD87FD007EE020 /* SegmentManager.cpp */; };
+		9D2D648029CD87FF007EE020 /* WaitCond.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D647029CD87FD007EE020 /* WaitCond.h */; };
+		9D2D648129CD87FF007EE020 /* HLSStreamer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D647129CD87FE007EE020 /* HLSStreamer.h */; };
+		9D2D648229CD87FF007EE020 /* HTTPHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D647229CD87FE007EE020 /* HTTPHandler.cpp */; };
+		9D2D648329CD87FF007EE020 /* PlaylistParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D647329CD87FE007EE020 /* PlaylistParser.cpp */; };
+		9D2D648429CD87FF007EE020 /* Demuxer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D647429CD87FE007EE020 /* Demuxer.h */; };
+		9D2D648529CD87FF007EE020 /* PlaylistParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D647529CD87FE007EE020 /* PlaylistParser.h */; };
+		9D2D648629CD87FF007EE020 /* HLSReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2D647629CD87FE007EE020 /* HLSReader.h */; };
+		9D2D648729CD87FF007EE020 /* HLSReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D647729CD87FF007EE020 /* HLSReader.cpp */; };
+		9D2D648829CD87FF007EE020 /* HLSStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D647829CD87FF007EE020 /* HLSStreamer.cpp */; };
+		9D51E2A729D1CE2100A974C9 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2A629D1CE2100A974C9 /* CoreAudio.framework */; };
+		9D51E2A929D1CE2700A974C9 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2A829D1CE2700A974C9 /* CoreVideo.framework */; };
+		9D51E2AB29D1CE4900A974C9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2AA29D1CE4900A974C9 /* AudioToolbox.framework */; };
+		9D51E2AD29D1CE5000A974C9 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2AC29D1CE5000A974C9 /* VideoToolbox.framework */; };
+		9D51E2AF29D1CE5E00A974C9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2AE29D1CE5E00A974C9 /* CoreFoundation.framework */; };
+		9D51E2B129D1CE8A00A974C9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2B029D1CE8A00A974C9 /* CoreMedia.framework */; };
+		9D51E2B329D1CF2700A974C9 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2B229D1CF2700A974C9 /* libbz2.tbd */; };
+		9D51E2B529D1CF3800A974C9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2B429D1CF3800A974C9 /* libz.tbd */; };
+		9D51E2C229D1D5D200A974C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2C129D1D5D200A974C9 /* Security.framework */; };
+		9D51E2C429D1D65E00A974C9 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D51E2C329D1D65E00A974C9 /* libiconv.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9D2D645F29CD87C0007EE020 /* hlsstream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = hlsstream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2D646929CD87FC007EE020 /* LiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveManager.h; path = ../src/LiveManager.h; sourceTree = "<group>"; };
+		9D2D646A29CD87FC007EE020 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../src/Common.h; sourceTree = "<group>"; };
+		9D2D646B29CD87FC007EE020 /* Demuxer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Demuxer.cpp; path = ../src/Demuxer.cpp; sourceTree = "<group>"; };
+		9D2D646C29CD87FD007EE020 /* HTTPHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPHandler.h; path = ../src/HTTPHandler.h; sourceTree = "<group>"; };
+		9D2D646D29CD87FD007EE020 /* LiveManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LiveManager.cpp; path = ../src/LiveManager.cpp; sourceTree = "<group>"; };
+		9D2D646E29CD87FD007EE020 /* SegmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegmentManager.h; path = ../src/SegmentManager.h; sourceTree = "<group>"; };
+		9D2D646F29CD87FD007EE020 /* SegmentManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SegmentManager.cpp; path = ../src/SegmentManager.cpp; sourceTree = "<group>"; };
+		9D2D647029CD87FD007EE020 /* WaitCond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitCond.h; path = ../src/WaitCond.h; sourceTree = "<group>"; };
+		9D2D647129CD87FE007EE020 /* HLSStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HLSStreamer.h; path = ../src/HLSStreamer.h; sourceTree = "<group>"; };
+		9D2D647229CD87FE007EE020 /* HTTPHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPHandler.cpp; path = ../src/HTTPHandler.cpp; sourceTree = "<group>"; };
+		9D2D647329CD87FE007EE020 /* PlaylistParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlaylistParser.cpp; path = ../src/PlaylistParser.cpp; sourceTree = "<group>"; };
+		9D2D647429CD87FE007EE020 /* Demuxer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Demuxer.h; path = ../src/Demuxer.h; sourceTree = "<group>"; };
+		9D2D647529CD87FE007EE020 /* PlaylistParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaylistParser.h; path = ../src/PlaylistParser.h; sourceTree = "<group>"; };
+		9D2D647629CD87FE007EE020 /* HLSReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HLSReader.h; path = ../src/HLSReader.h; sourceTree = "<group>"; };
+		9D2D647729CD87FF007EE020 /* HLSReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HLSReader.cpp; path = ../src/HLSReader.cpp; sourceTree = "<group>"; };
+		9D2D647829CD87FF007EE020 /* HLSStreamer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HLSStreamer.cpp; path = ../src/HLSStreamer.cpp; sourceTree = "<group>"; };
+		9D51E2A629D1CE2100A974C9 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		9D51E2A829D1CE2700A974C9 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		9D51E2AA29D1CE4900A974C9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9D51E2AC29D1CE5000A974C9 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		9D51E2AE29D1CE5E00A974C9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		9D51E2B029D1CE8A00A974C9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		9D51E2B229D1CF2700A974C9 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		9D51E2B429D1CF3800A974C9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9D51E2B629D1CF9600A974C9 /* libboringssl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libboringssl.tbd; path = usr/lib/libboringssl.tbd; sourceTree = SDKROOT; };
+		9D51E2B829D1CFD000A974C9 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../prebuilt/iOS/libcurl/lib/libcurl.a; sourceTree = "<group>"; };
+		9D51E2BA29D1CFE900A974C9 /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = ../prebuilt/iOS/libcurl/lib/libcurl.4.dylib; sourceTree = "<group>"; };
+		9D51E2BD29D1D18C00A974C9 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../prebuilt/iOS/openssl/lib/libcrypto.a; sourceTree = "<group>"; };
+		9D51E2BE29D1D18C00A974C9 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../prebuilt/iOS/openssl/lib/libssl.a; sourceTree = "<group>"; };
+		9D51E2C129D1D5D200A974C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9D51E2C329D1D65E00A974C9 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D2D645C29CD87C0007EE020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D51E2C429D1D65E00A974C9 /* libiconv.tbd in Frameworks */,
+				9D51E2C229D1D5D200A974C9 /* Security.framework in Frameworks */,
+				9D51E2B529D1CF3800A974C9 /* libz.tbd in Frameworks */,
+				9D51E2B329D1CF2700A974C9 /* libbz2.tbd in Frameworks */,
+				9D51E2B129D1CE8A00A974C9 /* CoreMedia.framework in Frameworks */,
+				9D51E2AF29D1CE5E00A974C9 /* CoreFoundation.framework in Frameworks */,
+				9D51E2AD29D1CE5000A974C9 /* VideoToolbox.framework in Frameworks */,
+				9D51E2AB29D1CE4900A974C9 /* AudioToolbox.framework in Frameworks */,
+				9D51E2A929D1CE2700A974C9 /* CoreVideo.framework in Frameworks */,
+				9D51E2A729D1CE2100A974C9 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9D2D645529CD87C0007EE020 = {
+			isa = PBXGroup;
+			children = (
+				9D2D646A29CD87FC007EE020 /* Common.h */,
+				9D2D646B29CD87FC007EE020 /* Demuxer.cpp */,
+				9D2D647429CD87FE007EE020 /* Demuxer.h */,
+				9D2D647729CD87FF007EE020 /* HLSReader.cpp */,
+				9D2D647629CD87FE007EE020 /* HLSReader.h */,
+				9D2D647829CD87FF007EE020 /* HLSStreamer.cpp */,
+				9D2D647129CD87FE007EE020 /* HLSStreamer.h */,
+				9D2D647229CD87FE007EE020 /* HTTPHandler.cpp */,
+				9D2D646C29CD87FD007EE020 /* HTTPHandler.h */,
+				9D2D646D29CD87FD007EE020 /* LiveManager.cpp */,
+				9D2D646929CD87FC007EE020 /* LiveManager.h */,
+				9D2D647329CD87FE007EE020 /* PlaylistParser.cpp */,
+				9D2D647529CD87FE007EE020 /* PlaylistParser.h */,
+				9D2D646F29CD87FD007EE020 /* SegmentManager.cpp */,
+				9D2D646E29CD87FD007EE020 /* SegmentManager.h */,
+				9D2D647029CD87FD007EE020 /* WaitCond.h */,
+				9D2D646029CD87C0007EE020 /* Products */,
+				9D51E2A529D1CE2100A974C9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9D2D646029CD87C0007EE020 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D2D645F29CD87C0007EE020 /* hlsstream.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D51E2A529D1CE2100A974C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D51E2C329D1D65E00A974C9 /* libiconv.tbd */,
+				9D51E2C129D1D5D200A974C9 /* Security.framework */,
+				9D51E2BD29D1D18C00A974C9 /* libcrypto.a */,
+				9D51E2BE29D1D18C00A974C9 /* libssl.a */,
+				9D51E2BA29D1CFE900A974C9 /* libcurl.4.dylib */,
+				9D51E2B829D1CFD000A974C9 /* libcurl.a */,
+				9D51E2B629D1CF9600A974C9 /* libboringssl.tbd */,
+				9D51E2B429D1CF3800A974C9 /* libz.tbd */,
+				9D51E2B229D1CF2700A974C9 /* libbz2.tbd */,
+				9D51E2B029D1CE8A00A974C9 /* CoreMedia.framework */,
+				9D51E2AE29D1CE5E00A974C9 /* CoreFoundation.framework */,
+				9D51E2AC29D1CE5000A974C9 /* VideoToolbox.framework */,
+				9D51E2AA29D1CE4900A974C9 /* AudioToolbox.framework */,
+				9D51E2A829D1CE2700A974C9 /* CoreVideo.framework */,
+				9D51E2A629D1CE2100A974C9 /* CoreAudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9D2D645A29CD87C0007EE020 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D2D647E29CD87FF007EE020 /* SegmentManager.h in Headers */,
+				9D2D647C29CD87FF007EE020 /* HTTPHandler.h in Headers */,
+				9D2D648629CD87FF007EE020 /* HLSReader.h in Headers */,
+				9D2D648029CD87FF007EE020 /* WaitCond.h in Headers */,
+				9D2D647929CD87FF007EE020 /* LiveManager.h in Headers */,
+				9D2D647A29CD87FF007EE020 /* Common.h in Headers */,
+				9D2D648529CD87FF007EE020 /* PlaylistParser.h in Headers */,
+				9D2D648429CD87FF007EE020 /* Demuxer.h in Headers */,
+				9D2D648129CD87FF007EE020 /* HLSStreamer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9D2D645E29CD87C0007EE020 /* hlsstream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D2D646629CD87C0007EE020 /* Build configuration list for PBXNativeTarget "hlsstream" */;
+			buildPhases = (
+				9D2D645A29CD87C0007EE020 /* Headers */,
+				9D2D645B29CD87C0007EE020 /* Sources */,
+				9D2D645C29CD87C0007EE020 /* Frameworks */,
+				9D2D645D29CD87C0007EE020 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = hlsstream;
+			productName = hlsstream;
+			productReference = 9D2D645F29CD87C0007EE020 /* hlsstream.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9D2D645629CD87C0007EE020 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					9D2D645E29CD87C0007EE020 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 9D2D645929CD87C0007EE020 /* Build configuration list for PBXProject "hlsstream" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9D2D645529CD87C0007EE020;
+			productRefGroup = 9D2D646029CD87C0007EE020 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D2D645E29CD87C0007EE020 /* hlsstream */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D2D645D29CD87C0007EE020 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D2D645B29CD87C0007EE020 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D2D648729CD87FF007EE020 /* HLSReader.cpp in Sources */,
+				9D2D648829CD87FF007EE020 /* HLSStreamer.cpp in Sources */,
+				9D2D647F29CD87FF007EE020 /* SegmentManager.cpp in Sources */,
+				9D2D647B29CD87FF007EE020 /* Demuxer.cpp in Sources */,
+				9D2D648329CD87FF007EE020 /* PlaylistParser.cpp in Sources */,
+				9D2D648229CD87FF007EE020 /* HTTPHandler.cpp in Sources */,
+				9D2D647D29CD87FF007EE020 /* LiveManager.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9D2D646429CD87C0007EE020 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9D2D646529CD87C0007EE020 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9D2D646729CD87C0007EE020 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					../prebuilt/iOS/libcurl/include,
+					../prebuilt/iOS/ffmpeg/include,
+					../prebuilt/iOS/openssl/include,
+				);
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../prebuilt/iOS/libcurl/lib,
+					../prebuilt/iOS/ffmpeg/lib,
+					../prebuilt/iOS/openssl/lib,
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-lavformat",
+					"-lavutil",
+					"-lswscale",
+					"-lavcodec",
+					"-lavfilter",
+					"-lswresample",
+					"-lcrypto",
+					"-lssl",
+					"-lcurl",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.binodrokkad.hlsstream;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9D2D646829CD87C0007EE020 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					../prebuilt/iOS/libcurl/include,
+					../prebuilt/iOS/ffmpeg/include,
+					../prebuilt/iOS/openssl/include,
+				);
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../prebuilt/iOS/libcurl/lib,
+					../prebuilt/iOS/ffmpeg/lib,
+					../prebuilt/iOS/openssl/lib,
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-lavformat",
+					"-lavutil",
+					"-lswscale",
+					"-lavcodec",
+					"-lavfilter",
+					"-lswresample",
+					"-lcrypto",
+					"-lssl",
+					"-lcurl",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.binodrokkad.hlsstream;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D2D645929CD87C0007EE020 /* Build configuration list for PBXProject "hlsstream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D2D646429CD87C0007EE020 /* Debug */,
+				9D2D646529CD87C0007EE020 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D2D646629CD87C0007EE020 /* Build configuration list for PBXNativeTarget "hlsstream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D2D646729CD87C0007EE020 /* Debug */,
+				9D2D646829CD87C0007EE020 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9D2D645629CD87C0007EE020 /* Project object */;
+}
