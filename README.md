@@ -1,6 +1,6 @@
 # HLS Sream
 Simple hls stream receiver.
-Is compatible with Android, iOS, macOS and Windows.
+Is compatible with Android, iOS, linux, macOS and Windows.
 Currently, it depends on libcurl amd ffmpeg.
 
 ### Android
@@ -26,6 +26,11 @@ Library build using xcode
 Open xcode project inside macOS directory
 ffmpeg is required to be installed using homebrew.
 - ``` brew install ffmpeg ```
+
+### iOS
+Library build using xcode
+
+Open xcode project inside iOS directory
 
 ### Linux
 Library build using cmake
