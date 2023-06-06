@@ -3,6 +3,12 @@ Simple hls stream receiver.
 Is compatible with Android, iOS, linux, macOS and Windows.
 Currently, it depends on libcurl amd ffmpeg.
 
+#### TODO
+- More playlist tags to be handled
+- DRM not yet implememented
+- Remove ffmpeg dependencies
+
+
 ### Android
 Library build.
 
@@ -44,3 +50,6 @@ building
 - ``` mkdir build && cd build ```
 - ``` cmake -DCMAKE_BUILD_TYPE=Debug .. && make```
 
+## Contributions
+
+Anyone wants to contribute to the project is most welcome. There are lots for improvement and enhancement. :)
